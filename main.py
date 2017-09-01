@@ -1,15 +1,12 @@
 import os
 
 
-def file_line_amount():
+def file_line_amount(dir_name, file_postfix):
     data = {}
-    my_dir = r"C:\Users\乐天\Documents\code\python\regex_"
 
-    for root, dirs, files in os.walk(my_dir):
+    for root, dirs, files in os.walk(dir_name):
         for file in files:
-            # if file.endswith('.cpp') or file.endswith('.h'):
-            # if file.endswith('.java'):
-            if file.endswith('.py'):
+            if file.endswith(file_postfix):
                 file_name = os.path.join(root, file)
                 f = open(file_name, 'r', encoding='UTF-8')
 
@@ -33,7 +30,9 @@ def print_data(files):
 
 
 def main():
-    files_data = file_line_amount()
+    dir_name = r"C:\Users\乐天\Documents\code\python\regex_"
+    file_postfix = ".py"
+    files_data = file_line_amount(dir_name, file_postfix)
     print_data(files_data)
 
 
