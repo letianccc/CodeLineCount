@@ -2,7 +2,7 @@ import os
 
 
 def file_line_amount(dir_name, file_postfix):
-    data = {}
+    data = dict()
 
     for root, dirs, files in os.walk(dir_name):
         for file in files:
